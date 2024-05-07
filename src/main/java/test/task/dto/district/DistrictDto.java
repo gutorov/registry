@@ -1,4 +1,4 @@
-package test.task.dto;
+package test.task.dto.district;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

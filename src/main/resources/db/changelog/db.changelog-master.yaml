@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/registry__V001__initial.sql
+  - include:
+      file: db/changelog/changeset/registry__V002__insert_data.sql

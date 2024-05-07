@@ -26,10 +26,10 @@ public class District {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "code", nullable = false)
-    private long code;
+    private Long code;
 
     @Column(name = "name", nullable = false)
     private String name;

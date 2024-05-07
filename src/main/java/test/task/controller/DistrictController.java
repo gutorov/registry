@@ -3,16 +3,15 @@ package test.task.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import test.task.dto.DistrictDto;
+import test.task.dto.district.DistrictDto;
 import test.task.service.DistrictService;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -20,10 +19,6 @@ import java.util.List;
 @RequestMapping("/api/v1/districts")
 public class DistrictController {
     private final DistrictService districtService;
-    //+Получение списка районов, внесенных в реестр. Реализовать фильтрацию возвращаемого списка по названию и коду района.
-    //-Добавление района
-    //-Изменение записи района
-    //-Отправить в архив (архивные не выводим в реестр)
 
     //Not sure how should I get necessary districts not using @PostMapping
     @PostMapping("/search")
@@ -38,9 +33,15 @@ public class DistrictController {
         return districtService.registerDistrict(districtDto);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     @Operation(description = "Altering the data of the district")
-    public DistrictDto updateDistrict(@PathParam("id") Long id, @RequestBody @Valid DistrictDto districtDto){
+    public DistrictDto updateDistrict(@PathVariable("id") Long id, @RequestBody @Valid DistrictDto districtDto) {
         return districtService.updateDistrict(id, districtDto);
+    }
+
+    @PatchMapping("/archive/{id}")
+    @Operation(description = "Archiving the district")
+    public DistrictDto archiveDistrict(@PathVariable("id") Long id) {
+        return districtService.archiveDistrict(id);
     }
 }

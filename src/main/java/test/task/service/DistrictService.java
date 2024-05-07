@@ -2,9 +2,10 @@ package test.task.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import test.task.dto.DistrictDto;
+import test.task.dto.district.DistrictDto;
 import test.task.errors.MessageError;
 import test.task.mapper.DistrictMapper;
 import test.task.model.District;
@@ -23,7 +24,11 @@ public class DistrictService {
     public List<DistrictDto> getDistrictsByFilters(DistrictDto districtFilter) {
         District district = districtMapper.toEntity(districtFilter);
         district.setArchived(false);
-        Example<District> districtExample = Example.of(district);
+
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withIgnoreNullValues();
+        Example<District> districtExample = Example.of(district, matcher);
+
         List<District> filteredDistricts = districtRepository.findAll(districtExample);
         return districtMapper.toDto(filteredDistricts);
     }
@@ -44,9 +49,10 @@ public class DistrictService {
     }
 
     @Transactional
-    public void archiveDistrict(Long id){
+    public DistrictDto archiveDistrict(Long id){
         District district = getDistrict(id);
         district.setArchived(true);
+        return districtMapper.toDto(district);
     }
 
     private District getDistrict(Long id){

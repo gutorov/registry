@@ -1,9 +1,8 @@
 package test.task.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
-import test.task.dto.DistrictDto;
+import test.task.dto.district.DistrictDto;
 import test.task.model.District;
 
 import java.util.List;
