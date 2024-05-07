@@ -1,0 +1,11 @@
+code,name,archived,created_at,updated_at
+100,Central District,false,2024-05-01T12:30:00,2024-05-01T12:30:00
+101,North District,false,2024-05-02T13:45:00,2024-05-02T13:45:00
+102,South District,true,2024-05-03T15:00:00,2024-05-03T15:00:00
+103,East District,false,2024-05-04T16:15:00,2024-05-04T16:15:00
+104,West District,true,2024-05-05T17:30:00,2024-05-05T17:30:00
+105,Downtown District,false,2024-05-06T09:00:00,2024-05-06T09:00:00
+106,Uptown District,false,2024-05-07T10:15:00,2024-05-07T10:15:00
+107,Midtown District,true,2024-05-08T11:30:00,2024-05-08T11:30:00
+108,Suburban District,false,2024-05-09T12:45:00,2024-05-09T12:45:00
+109,Rural District,true,2024-05-10T14:00:00,2024-05-10T14:00:00
