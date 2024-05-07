@@ -1,6 +1,7 @@
 package test.task;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableSwagger2
 @OpenAPIDefinition(
         info = @Info(
-                title = "This is region registration service",
+                contact = @Contact(
+                        name = "Kirill",
+                        email = "gutorovvvvv.k@gmail.com"
+                ),
+                title = "OpenApi Specification - Kirill",
+                description = "OpenApi Specification for Registry",
                 version = "1.0.0")
 )
 public class RegistryServiceApp {
