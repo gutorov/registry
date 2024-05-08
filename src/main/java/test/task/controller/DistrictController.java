@@ -6,6 +6,8 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +33,7 @@ public class DistrictController {
     //I understand that I could send fields, by which I will filter data, separately,
     //but that approach would have complicated the further extension,
     //meanwhile when I use @RequestBody I could merely and some other fields in DistrictDto and filter by them
-    @PostMapping("/searches")
+    @GetMapping("/searches")
     @Operation(
             summary = "Get filtered districts",
             description = "Retrieve a list of districts that match the given filters. This endpoint is useful for obtaining a filtered list of districts without retrieving archived records.",
@@ -45,7 +47,7 @@ public class DistrictController {
                     )
             )
     )
-    public List<DistrictDto> getDistrictsByFilters(@RequestBody @Parameter(description = "Filter criteria for searching districts", required = true)
+    public List<DistrictDto> getDistrictsByFilters(@Parameter(description = "Filter criteria for searching districts", required = true)
                                                    DistrictDto districtFilter) {
         return districtService.getDistrictsByFilters(districtFilter);
     }
@@ -90,7 +92,7 @@ public class DistrictController {
         return districtService.updateDistrict(id, districtDto);
     }
 
-    @PatchMapping("/archive/{id}")
+    @DeleteMapping("/archive/{id}")
     @Operation(
             summary = "Archive district",
             description = "Archives a district by its ID, effectively hiding it from regular registry views but not deleting it from the database.",
