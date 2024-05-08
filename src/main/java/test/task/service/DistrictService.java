@@ -49,10 +49,10 @@ public class DistrictService {
     }
 
     @Transactional
-    public DistrictDto archiveDistrict(Long id){
+    public void archiveDistrict(Long id){
         District district = getDistrict(id);
         district.setArchived(true);
-        return districtMapper.toDto(district);
+        districtMapper.toDto(district);
     }
 
     private District getDistrict(Long id){

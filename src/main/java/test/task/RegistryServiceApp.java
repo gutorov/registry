@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-//@EnableSwagger2
 @OpenAPIDefinition(
         info = @Info(
                 contact = @Contact(

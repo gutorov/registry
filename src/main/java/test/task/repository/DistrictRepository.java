@@ -7,5 +7,5 @@ import test.task.model.District;
 
 
 @Repository
-public interface DistrictRepository extends JpaRepository<District, Long>, QueryByExampleExecutor<District> {
+public interface DistrictRepository extends JpaRepository<District, Long>{
 }
