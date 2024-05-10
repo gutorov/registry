@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface FarmerRepository extends JpaRepository<Farmer, Long>, JpaSpecificationExecutor<Farmer>, CustomFarmerRepository{
-    @Query("SELECT e FROM Farmer e WHERE FUNCTION('DATE', e.registeredAt) >= :startDate AND FUNCTION('DATE', e.registeredAt) <= :endDate")
-    List<Farmer> findByEventDateBetween(LocalDate startDate, LocalDate endDate);
+public interface FarmerRepository extends JpaRepository<Farmer, Long>, QueryByExampleExecutor<Farmer>, CustomFarmerRepository, JpaSpecificationExecutor<Farmer>{
+//    @Query("SELECT e FROM Farmer e WHERE FUNCTION('DATE', e.registeredAt) >= :startDate AND FUNCTION('DATE', e.registeredAt) <= :endDate")
+//    List<Farmer> findByEventDateBetween(LocalDate startDate, LocalDate endDate);
 }

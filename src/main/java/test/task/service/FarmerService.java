@@ -2,11 +2,11 @@ package test.task.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import test.task.dto.FarmerDto;
 import test.task.mapper.FarmerMapper;
 import test.task.model.farmer.Farmer;
+import test.task.repository.CustomFarmerRepositoryImpl;
 import test.task.repository.FarmerRepository;
 
 import java.util.List;
@@ -16,6 +16,7 @@ import java.util.List;
 public class FarmerService {
 
     private final FarmerRepository farmerRepository;
+//    private final CustomFarmerRepositoryImpl farmerRepositoryIml;
     private final FarmerMapper farmerMapper;
 
     public List<FarmerDto> getFarmersByFilters(FarmerDto filter){

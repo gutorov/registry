@@ -35,7 +35,7 @@ public class Farmer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "organisation_name")
     private String organisationName;
@@ -45,13 +45,13 @@ public class Farmer {
     private LegalForm legalForm;
 
     @Column(name = "taxpayer_identification_number_inn")
-    private long INN;
+    private Long INN;
 
     @Column(name = "tax_registration_reason_code_kpp")
-    private long KPP;
+    private Long KPP;
 
     @Column(name = "primary_state_registration_number_ogrn")
-    private long OGRN;
+    private Long OGRN;
 
     @ManyToOne
     @JoinColumn(name = "district_registered_at_id")
@@ -80,6 +80,9 @@ public class Farmer {
     @Transient
     private LocalDateTime endDate;
 
+    public Long getINN(){
+        return INN;
+    }
 
 //название организации (обязательное, фильтр)
 //организационно-правовая форма (ЮР, ИП, ФЛ)

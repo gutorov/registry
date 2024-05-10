@@ -41,6 +41,8 @@ public class FarmerDto {
     @NotNull
     private Long districtRegisteredAtId;//form district
 
+
+
     @NotNull
     private List<Long> cropFieldDistrictsIds;//from districts to its ids
 

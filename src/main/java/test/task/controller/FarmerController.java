@@ -2,6 +2,8 @@ package test.task.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import test.task.dto.FarmerDto;
 import test.task.service.FarmerService;
@@ -14,10 +16,11 @@ public class FarmerController {
 
     private final FarmerService farmerService;
 
-    @GetMapping
-    public List<FarmerDto> getFarmerByFilters(FarmerDto filter){
+    @PostMapping("/filter")
+    public List<FarmerDto> getFarmerByFilters(@RequestBody FarmerDto filter){
         return farmerService.getFarmersByFilters(filter);
     }
+
 
 //название организации (обязательное, фильтр)
 //организационно-правовая форма (ЮР, ИП, ФЛ)
