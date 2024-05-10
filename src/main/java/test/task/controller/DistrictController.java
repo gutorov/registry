@@ -2,16 +2,10 @@ package test.task.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +26,7 @@ public class DistrictController {
 
     private final DistrictService districtService;
 
-    @GetMapping("/search")
+    @GetMapping
     @Operation(
             summary = "Search districts based on filters",
             description = "Retrieves a list of districts that match the given filters. " +
@@ -44,7 +38,7 @@ public class DistrictController {
         return districtService.getDistrictsByFilters(districtFilter);
     }
 
-    @PostMapping("/register")
+    @PostMapping
     @Operation(
             summary = "Add district",
             description = "Adds a new district to the registry. This endpoint accepts district details and creates a new district record."
@@ -67,7 +61,7 @@ public class DistrictController {
         return districtService.updateDistrict(id, districtDto);
     }
 
-    @DeleteMapping("/archive/{id}")
+    @DeleteMapping("/{id}")
     @Operation(
             summary = "Archive district",
             description = "Archives a district by its ID, effectively hiding it from regular registry views but not deleting it from the database.",

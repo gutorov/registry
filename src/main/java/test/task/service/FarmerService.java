@@ -1,22 +1,30 @@
-package test.task.controller;
+package test.task.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.stereotype.Service;
 import test.task.dto.FarmerDto;
-import test.task.service.FarmerService;
+import test.task.mapper.FarmerMapper;
+import test.task.model.farmer.Farmer;
+import test.task.repository.FarmerRepository;
 
 import java.util.List;
 
-@RestController("/api/v1/farmers")
+@Service
 @RequiredArgsConstructor
-public class FarmerController {
+public class FarmerService {
 
-    private final FarmerService farmerService;
+    private final FarmerRepository farmerRepository;
+    private final FarmerMapper farmerMapper;
 
-    @GetMapping
-    public List<FarmerDto> getFarmerByFilters(FarmerDto filter){
-        return farmerService.getFarmersByFilters(filter);
+    public List<FarmerDto> getFarmersByFilters(FarmerDto filter){
+
+        Example<Farmer> farmerFilter = Example.of(farmerMapper.toEntity(filter));
+
+//        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+
+        return farmerMapper.toDto(farmerRepository.findByExampleWithDateRange(farmerFilter));
     }
 
 //название организации (обязательное, фильтр)
@@ -36,4 +44,13 @@ public class FarmerController {
     //Изменение записи фермера
     //Отправить в архив (архивные не выводим в реестр)
 
+//Organization Name (required, filterable)
+//Legal Form (Corporation, Sole Proprietorship, Individual)
+//Taxpayer Identification Number (INN) (required, filterable)
+//Tax Registration Reason Code (KPP)
+//Primary State Registration Number (OGRN)
+//Registration District (linked to District ID, filterable)
+//Districts of Crop Fields (multiple selection, linked to District)
+//Registration Date (filterable)
+//Archival Status (Yes/No, filterable)
 }

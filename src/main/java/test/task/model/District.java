@@ -2,19 +2,22 @@ package test.task.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import test.task.model.farmer.Farmer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Builder
@@ -36,6 +39,12 @@ public class District {
 
     @Column(name = "archived", nullable = false)
     private boolean isArchived;
+
+    @ManyToMany(mappedBy = "cropFieldDistricts")
+    private List<Farmer> farmers;
+
+    @OneToMany(mappedBy = "districtRegisteredAt")
+    private List<Farmer> registeredFarmers;
 
     @CreationTimestamp
     @Column(name = "created_at")

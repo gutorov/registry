@@ -12,6 +12,7 @@ import test.task.model.District;
 import test.task.repository.DistrictRepository;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -44,6 +45,7 @@ public class DistrictService {
         District district = getDistrict(id);
         district.setCode(districtDto.getCode());
         district.setName(districtDto.getName());
+        district.setUpdated_at(LocalDateTime.now());
 
         return districtMapper.toDto(district);
     }

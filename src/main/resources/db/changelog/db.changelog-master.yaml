@@ -3,3 +3,7 @@ databaseChangeLog:
       file: db/changelog/changeset/registry__V001__initial.sql
   - include:
       file: db/changelog/changeset/registry__V002__insert_data.sql
+  - include:
+      file: db/changelog/changeset/registry__V003__create_farmer_table.sql
+  - include:
+      file: db/changelog/changeset/registry__V004__insert_farmers_data.sql

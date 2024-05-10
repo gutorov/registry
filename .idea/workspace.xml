@@ -4,20 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d729f95d-2ba3-49b1-a49d-8771e9f623c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="d729f95d-2ba3-49b1-a49d-8771e9f623c7" name="Changes" comment="made it sweet">
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/dto/FarmerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/mapper/FarmerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/CustomFarmerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/CustomFarmerRepositoryIml.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/FarmerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/service/FarmerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/validation/annotations/DigitCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/validation/validators/DigitCountValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/registry__V003__create_farmer_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/registry__V004__insert_farmers_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/controller/FarmerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/controller/FarmerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/model/District.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/model/District.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/model/farmer/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/model/farmer/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/repository/DistrictRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/DistrictRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/service/DistrictService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/service/DistrictService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2g7mZd0XCxJ1d7xYUMCQQtDIlQr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -26,13 +52,55 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.registry [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.RegistryServiceApp.executor": "Run",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/kirillgutorov/IdeaProjects/registry/src/main/resources/db/changelog/changeset",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "profiler.jvm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db/changelog/changeset" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RegistryServiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="registry" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="test.task.RegistryServiceApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.task.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.RegistryServiceApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -49,10 +117,80 @@
       <option name="presentableId" value="Default" />
       <updated>1715057052012</updated>
       <workItem from="1715057053352" duration="5000" />
+      <workItem from="1715160660382" duration="24505000" />
+      <workItem from="1715306780842" duration="176000" />
     </task>
+    <task id="LOCAL-00001" summary="edited gitignore">
+      <option name="closed" value="true" />
+      <created>1715088551997</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715088551997</updated>
+    </task>
+    <task id="LOCAL-00002" summary="finally solved swagger problem, adding another instead springdoc dependency">
+      <option name="closed" value="true" />
+      <created>1715103678150</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715103678150</updated>
+    </task>
+    <task id="LOCAL-00003" summary="final working version of district registry">
+      <option name="closed" value="true" />
+      <created>1715111916876</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715111916876</updated>
+    </task>
+    <task id="LOCAL-00004" summary="replaced @PostMapping with @GetMapping">
+      <option name="closed" value="true" />
+      <created>1715151287229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715151287229</updated>
+    </task>
+    <task id="LOCAL-00005" summary="made it sweet">
+      <option name="closed" value="true" />
+      <created>1715153621509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715153621510</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="edited gitignore" />
+    <MESSAGE value="finally solved swagger problem, adding another instead springdoc dependency" />
+    <MESSAGE value="final working version of district registry" />
+    <MESSAGE value="replaced @PostMapping with @GetMapping" />
+    <MESSAGE value="made it sweet" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it sweet" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java</url>
+          <line>45</line>
+          <properties class="test.task.controller.DistrictController" method="registerDistrict">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

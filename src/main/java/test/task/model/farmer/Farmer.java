@@ -1,17 +1,36 @@
 package test.task.model.farmer;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import test.task.model.District;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.time.LocalDateTime;
 import java.util.List;
 
+
+@Entity
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "farmer")
 public class Farmer {
 
     @Id
@@ -26,22 +45,40 @@ public class Farmer {
     private LegalForm legalForm;
 
     @Column(name = "taxpayer_identification_number_inn")
-    private int INN;
+    private long INN;
 
     @Column(name = "tax_registration_reason_code_kpp")
-    private int KPP;
+    private long KPP;
 
     @Column(name = "primary_state_registration_number_ogrn")
-    private int OGRN;
+    private long OGRN;
 
-    @OneToOne
-    private District registrationDistrict;
+    @ManyToOne
+    @JoinColumn(name = "district_registered_at_id")
+    private District districtRegisteredAt;
+
+    @ManyToMany
+    @JoinTable(
+            name = "farmer_district",
+            joinColumns = @JoinColumn(name = "farmer_id"),
+            inverseJoinColumns = @JoinColumn(name = "district_id")
+    )
     private List<District> cropFieldDistricts;
+
+
+    @Column(name = "is_archived")
     private Boolean isArchived;
 
+    @Column(name = "registered_at")
+    private LocalDateTime registeredAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
-
+    @Transient
+    private LocalDateTime startDate;
+    @Transient
+    private LocalDateTime endDate;
 
 
 //название организации (обязательное, фильтр)
