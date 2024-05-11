@@ -13,10 +13,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = DigitCountValidator.class)
 public @interface DigitCount {
-    int min() default 0;
-    int max() default Integer.MAX_VALUE;
+    long min() default 0l;
+    long max() default Long.MAX_VALUE;
     String message() default "The number of digits is out of acceptable range";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
+
 

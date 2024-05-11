@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import test.task.model.District;
 
 import javax.persistence.Column;
@@ -66,12 +68,14 @@ public class Farmer {
     private List<District> cropFieldDistricts;
 
 
-    @Column(name = "is_archived")
-    private Boolean isArchived;
+    @Column(name = "is_archived", nullable = false)
+    private boolean isArchived;// TODO: filter
 
+    @CreationTimestamp
     @Column(name = "registered_at")
     private LocalDateTime registeredAt;
 
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
@@ -80,9 +84,6 @@ public class Farmer {
     @Transient
     private LocalDateTime endDate;
 
-    public Long getINN(){
-        return INN;
-    }
 
 //название организации (обязательное, фильтр)
 //организационно-правовая форма (ЮР, ИП, ФЛ)

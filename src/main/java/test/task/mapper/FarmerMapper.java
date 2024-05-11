@@ -2,6 +2,7 @@ package test.task.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
@@ -12,14 +13,14 @@ import test.task.model.farmer.Farmer;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
 public interface FarmerMapper {
 
-    @Mapping(source = "districtRegisteredAt.id", target = "districtRegisteredAtId")
-    @Mapping(source = "cropFieldDistricts", target = "cropFieldDistrictsIds", qualifiedByName = "map")
+    @Mapping(source = "districtRegisteredAt.name", target = "districtRegisteredAt")
+    @Mapping(source = "cropFieldDistricts", target = "cropFieldDistricts", qualifiedByName = "toDistrictNames")
     FarmerDto toDto(Farmer farmer);
-    @Mapping(source = "districtRegisteredAt.id", target = "districtRegisteredAtId")
-    @Mapping(source = "cropFieldDistricts", target = "cropFieldDistrictsIds", qualifiedByName = "map")
+    @Mapping(source = "districtRegisteredAt.name", target = "districtRegisteredAt")
+    @Mapping(source = "cropFieldDistricts", target = "cropFieldDistricts", qualifiedByName = "toDistrictNames")
     List<FarmerDto> toDto(List<Farmer> farmer);
 
 
@@ -27,10 +28,14 @@ public interface FarmerMapper {
     @Mapping(target = "cropFieldDistricts", ignore = true)
     Farmer toEntity(FarmerDto farmerDto);
 
-    @Named("map")
-    default List<Long> toIds(List<District> districts){
+    @Mapping(target = "districtRegisteredAt", ignore = true)
+    @Mapping(target = "cropFieldDistricts", ignore = true)
+    void updateFarmer(FarmerDto farmerDto, @MappingTarget Farmer farmer);
+
+    @Named("toDistrictNames")
+    default List<String> toDistrictNames(List<District> districts){
         return districts.stream()
-                .map(district -> district.getId())
+                .map(district -> district.getName())
                 .collect(Collectors.toList());
     }
 }

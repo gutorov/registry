@@ -3,12 +3,16 @@ package test.task.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import test.task.dto.FarmerDto;
 import test.task.mapper.FarmerMapper;
+import test.task.model.District;
 import test.task.model.farmer.Farmer;
-import test.task.repository.CustomFarmerRepositoryImpl;
 import test.task.repository.FarmerRepository;
+import test.task.validation.DistrictValidation;
+import test.task.validation.FarmerValidation;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -16,42 +20,55 @@ import java.util.List;
 public class FarmerService {
 
     private final FarmerRepository farmerRepository;
-//    private final CustomFarmerRepositoryImpl farmerRepositoryIml;
     private final FarmerMapper farmerMapper;
+    private final DistrictValidation districtValidation;
+    private final FarmerValidation farmerValidation;
 
     public List<FarmerDto> getFarmersByFilters(FarmerDto filter){
 
         Example<Farmer> farmerFilter = Example.of(farmerMapper.toEntity(filter));
 
-//        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
-
         return farmerMapper.toDto(farmerRepository.findByExampleWithDateRange(farmerFilter));
     }
 
-//название организации (обязательное, фильтр)
-//организационно-правовая форма (ЮР, ИП, ФЛ)
-//ИНН (обязательное, фильтр)
-//КПП
-//ОГРН
-//район регистрации (связь с районом/ID - района) (фильтр)
-//районы посевных полей (множественный выбор, связь с районом)
-//дата регистрации (фильтр)
-//статус архивности (да/нет) (фильтр)
+    public FarmerDto getFarmerById(Long farmerId){
+        Farmer farmer = farmerRepository.findById(farmerId).orElseThrow(
+                () -> new EntityNotFoundException("Farmer with id:" + farmerId+ " was not found"));
+        return farmerMapper.toDto(farmer);
+    }
 
-    //Необходимо реализовать следующие запросы:
-    //Получение списка фермеров, внесенных в реестр. Реализовать фильтрацию возвращаемого списка по указанным атрибутам.
-    //Получение данных по фермеру. По районам необходимо предоставлять наименования.
-    //Добавление фермера
-    //Изменение записи фермера
-    //Отправить в архив (архивные не выводим в реестр)
+    @Transactional
+    public FarmerDto registerFarmer(FarmerDto farmerDto){
+        Farmer farmer = farmerMapper.toEntity(farmerDto);
+        District districtRegisteredAt = districtValidation.validateAndFindDistrictByName(farmerDto.getDistrictRegisteredAt());
+        List<District> cropFieldDistricts = districtValidation.validateAndFindDistrictsByNames(farmerDto.getCropFieldDistricts());
 
-//Organization Name (required, filterable)
-//Legal Form (Corporation, Sole Proprietorship, Individual)
-//Taxpayer Identification Number (INN) (required, filterable)
-//Tax Registration Reason Code (KPP)
-//Primary State Registration Number (OGRN)
-//Registration District (linked to District ID, filterable)
-//Districts of Crop Fields (multiple selection, linked to District)
-//Registration Date (filterable)
-//Archival Status (Yes/No, filterable)
+        farmer.setDistrictRegisteredAt(districtRegisteredAt);
+        farmer.setCropFieldDistricts(cropFieldDistricts);
+
+        return farmerMapper.toDto(farmerRepository.save(farmer));
+    }
+
+    @Transactional
+    public FarmerDto updateFarmer(Long farmerId, FarmerDto farmerDto){
+        Farmer oldFarmer = farmerValidation.validateAndFindFarmerById(farmerId);
+
+
+        Farmer updatedFarmer = farmerMapper.toEntity(farmerDto);
+
+        District districtRegisteredAt = districtValidation.validateAndFindDistrictByName(farmerDto.getDistrictRegisteredAt());
+        List<District> cropFieldDistricts = districtValidation.validateAndFindDistrictsByNames(farmerDto.getCropFieldDistricts());
+
+        updatedFarmer.setId(farmerId);
+        updatedFarmer.setCropFieldDistricts(cropFieldDistricts);
+        updatedFarmer.setDistrictRegisteredAt(districtRegisteredAt);
+
+        return farmerMapper.toDto(updatedFarmer);
+    }
+
+    @Transactional
+    public void archiveFarmer(Long farmerId){
+        Farmer farmer = farmerValidation.validateAndFindFarmerById(farmerId);
+        farmer.setArchived(true);
+    }
 }

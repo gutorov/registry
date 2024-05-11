@@ -37,7 +37,7 @@ public class District {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "archived", nullable = false)
+    @Column(name = "archived")
     private boolean isArchived;
 
     @ManyToMany(mappedBy = "cropFieldDistricts")
