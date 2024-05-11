@@ -17,7 +17,7 @@ public class DigitCountValidator implements ConstraintValidator<DigitCount, Long
 
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
-//        if (value == null) return true;  // null is considered valid
+        if (value == null) return true;  // null is considered valid
         int length = String.valueOf(value).length();
         return length >= min && length <= max;
     }

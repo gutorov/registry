@@ -17,10 +17,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.time.LocalDateTime;
@@ -69,7 +67,7 @@ public class Farmer {
 
 
     @Column(name = "is_archived", nullable = false)
-    private boolean isArchived;// TODO: filter
+    private boolean isArchived;
 
     @CreationTimestamp
     @Column(name = "registered_at")
@@ -83,32 +81,4 @@ public class Farmer {
     private LocalDateTime startDate;
     @Transient
     private LocalDateTime endDate;
-
-
-//название организации (обязательное, фильтр)
-//организационно-правовая форма (ЮР, ИП, ФЛ)
-//ИНН (обязательное, фильтр)
-//КПП
-//ОГРН
-//район регистрации (связь с районом/ID - района) (фильтр)
-//районы посевных полей (множественный выбор, связь с районом)
-//дата регистрации (фильтр)
-//статус архивности (да/нет) (фильтр)
-
-    //Необходимо реализовать следующие запросы:
-    //Получение списка фермеров, внесенных в реестр. Реализовать фильтрацию возвращаемого списка по указанным атрибутам.
-    //Получение данных по фермеру. По районам необходимо предоставлять наименования.
-    //Добавление фермера
-    //Изменение записи фермера
-    //Отправить в архив (архивные не выводим в реестр)
-
-//Organization Name (required, filterable)
-//Legal Form (Corporation, Sole Proprietorship, Individual)
-//Taxpayer Identification Number (INN) (required, filterable)
-//Tax Registration Reason Code (KPP)
-//Primary State Registration Number (OGRN)
-//Registration District (linked to District ID, filterable)
-//Districts of Crop Fields (multiple selection, linked to District)
-//Registration Date (filterable)
-//Archival Status (Yes/No, filterable)
 }

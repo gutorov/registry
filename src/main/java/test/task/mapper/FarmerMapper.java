@@ -4,8 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
-import org.mapstruct.ReportingPolicy;
 
+import org.mapstruct.ReportingPolicy;
 import test.task.dto.FarmerDto;
 import test.task.model.District;
 import test.task.model.farmer.Farmer;
@@ -13,7 +13,7 @@ import test.task.model.farmer.Farmer;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface FarmerMapper {
 
     @Mapping(source = "districtRegisteredAt.name", target = "districtRegisteredAt")
@@ -35,7 +35,7 @@ public interface FarmerMapper {
     @Named("toDistrictNames")
     default List<String> toDistrictNames(List<District> districts){
         return districts.stream()
-                .map(district -> district.getName())
+                .map(District::getName)
                 .collect(Collectors.toList());
     }
 }

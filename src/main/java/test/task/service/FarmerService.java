@@ -51,19 +51,18 @@ public class FarmerService {
 
     @Transactional
     public FarmerDto updateFarmer(Long farmerId, FarmerDto farmerDto){
-        Farmer oldFarmer = farmerValidation.validateAndFindFarmerById(farmerId);
+        Farmer farmer = farmerValidation.validateAndFindFarmerById(farmerId);
 
-
-        Farmer updatedFarmer = farmerMapper.toEntity(farmerDto);
+        farmerMapper.updateFarmer(farmerDto, farmer);
 
         District districtRegisteredAt = districtValidation.validateAndFindDistrictByName(farmerDto.getDistrictRegisteredAt());
         List<District> cropFieldDistricts = districtValidation.validateAndFindDistrictsByNames(farmerDto.getCropFieldDistricts());
 
-        updatedFarmer.setId(farmerId);
-        updatedFarmer.setCropFieldDistricts(cropFieldDistricts);
-        updatedFarmer.setDistrictRegisteredAt(districtRegisteredAt);
 
-        return farmerMapper.toDto(updatedFarmer);
+        farmer.setCropFieldDistricts(cropFieldDistricts);
+        farmer.setDistrictRegisteredAt(districtRegisteredAt);
+
+        return farmerMapper.toDto(farmer);
     }
 
     @Transactional
