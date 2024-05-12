@@ -13,6 +13,7 @@ import respak.registry_service.validation.DistrictValidation;
 import respak.registry_service.validation.FarmerValidation;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -61,6 +62,7 @@ public class FarmerService {
 
         farmer.setCropFieldDistricts(cropFieldDistricts);
         farmer.setDistrictRegisteredAt(districtRegisteredAt);
+        farmer.setUpdatedAt(LocalDateTime.now());
 
         return farmerMapper.toDto(farmer);
     }

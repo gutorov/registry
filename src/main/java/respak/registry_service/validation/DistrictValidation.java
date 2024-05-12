@@ -36,7 +36,7 @@ public class DistrictValidation {
         List<District> districts = districtRepository.findAllByNameIn(districtNames);
         if (districts == null || districts.size() < districtNames.size()) {
             log.warn("Some districts were not found in the data base");
-            throw new EntityNotFoundException("Some or none districts were found in the data base");
+            throw new EntityNotFoundException("Some or no districts were found in the database.");
         }
         return districts;
     }

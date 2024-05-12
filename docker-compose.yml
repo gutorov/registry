@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  master_postgres:
+    image: postgres:9.6.23
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=registry_postgres
