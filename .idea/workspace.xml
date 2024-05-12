@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d729f95d-2ba3-49b1-a49d-8771e9f623c7" name="Changes" comment="made it sweet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/dto/FarmerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/mapper/FarmerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/CustomFarmerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/CustomFarmerRepositoryIml.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/FarmerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/service/FarmerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/validation/annotations/DigitCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/task/validation/validators/DigitCountValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/registry__V003__create_farmer_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changeset/registry__V004__insert_farmers_data.sql" afterDir="false" />
+    <list default="true" id="d729f95d-2ba3-49b1-a49d-8771e9f623c7" name="Changes" comment="Docker compose added and some minor changes">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/controller/FarmerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/controller/FarmerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/model/District.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/model/District.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/model/farmer/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/model/farmer/Farmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/repository/DistrictRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/repository/DistrictRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/task/service/DistrictService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/task/service/DistrictService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +24,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -50,37 +39,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.registry [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.RegistryServiceApp.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kirillgutorov/IdeaProjects/registry/src/main/resources/db/changelog/changeset",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "profiler.jvm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.registry [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.registry [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.registry [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Shell Script.run.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistryServiceApp (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistryServiceApp.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kirillgutorov/IdeaProjects/registry&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog/changeset" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.RegistryServiceApp (1)">
+    <configuration name="run.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegistryServiceApp (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="registry" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="respak.registry_service.RegistryServiceApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegistryServiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="registry" />
@@ -95,18 +113,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.run.sh" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Spring Boot.RegistryServiceApp" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-1.8.0_402-temurin-1.8.0_402-4caba194b151-05ceb1d7" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -119,6 +147,8 @@
       <workItem from="1715057053352" duration="5000" />
       <workItem from="1715160660382" duration="24505000" />
       <workItem from="1715306780842" duration="176000" />
+      <workItem from="1715416360764" duration="24657000" />
+      <workItem from="1715488419266" duration="3692000" />
     </task>
     <task id="LOCAL-00001" summary="edited gitignore">
       <option name="closed" value="true" />
@@ -160,11 +190,62 @@
       <option name="project" value="LOCAL" />
       <updated>1715153621510</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="intermediate change">
+      <option name="closed" value="true" />
+      <created>1715343113136</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715343113136</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Before I made PatchFarmerDto">
+      <option name="closed" value="true" />
+      <created>1715428104981</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715428104981</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Perhaps final version">
+      <option name="closed" value="true" />
+      <created>1715444273576</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715444273576</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Renamed main folder">
+      <option name="closed" value="true" />
+      <created>1715444391354</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715444391354</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Docker compose added and some minor changes">
+      <option name="closed" value="true" />
+      <created>1715489284445</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715489284445</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="edited gitignore" />
@@ -172,13 +253,18 @@
     <MESSAGE value="final working version of district registry" />
     <MESSAGE value="replaced @PostMapping with @GetMapping" />
     <MESSAGE value="made it sweet" />
-    <option name="LAST_COMMIT_MESSAGE" value="made it sweet" />
+    <MESSAGE value="intermediate change" />
+    <MESSAGE value="Before I made PatchFarmerDto" />
+    <MESSAGE value="Perhaps final version" />
+    <MESSAGE value="Renamed main folder" />
+    <MESSAGE value="Docker compose added and some minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker compose added and some minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/test/task/controller/DistrictController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/respak/registry_service/controller/DistrictController.java</url>
           <line>45</line>
           <properties class="test.task.controller.DistrictController" method="registerDistrict">
             <option name="EMULATED" value="true" />
