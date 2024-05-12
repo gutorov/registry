@@ -58,8 +58,8 @@ java -jar target/registry-1.0-SNAPSHOT.jar.original
 RESTful приложения реестр с endpoint'ами, которые отвечают за добавление, обновление, получениие и удаления (архивации) сущностей из реестра
 
 Для полной и интерактивной документации всех API-эндпоинтов, пожалуйста, посетите наш Swagger UI:
-Документация [API Swagger](https://localhost:8081/swagger-ui.html)
-(Доступна после запуска прилодения локально)
+Документация [API Swagger](https://localhost:8080/swagger-ui.html)
+(Доступна после локального запуска приложения)
 
 * Обычная трёхслойная
   архитектура – [Controller](src/main/java/respak/registry_service/controller), [Service](src/main/java/respak/registry_service/service), [Repository](src/main/java/respak/registry_service/repository)
